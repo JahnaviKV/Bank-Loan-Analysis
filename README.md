@@ -3,7 +3,9 @@ Jahnavi Kailasa Vani
 
 ________________________________________
 Executive Summary
+
 This project analyzes a bank loan dataset to predict loan default risk. Using historical loan data, the analysis identifies key predictors of default and develops predictive models to assist the bank in risk-based decision-making.
+
 Key outcomes:
 •	Random Forest model achieved the highest predictive accuracy (92.17%) and effectively identified high-risk borrowers.
 •	Important predictors: debt-to-income ratio (DEBTINC), delinquencies (DELINQ), derogatory reports (DEROG), and loan amount (LOAN).
@@ -16,14 +18,15 @@ To predict whether a loan applicant will default and identify high-risk borrower
 Analytical Approach
 
 Data Exploration & Preprocessing
-•	Dataset: 5,960 loan applications with 13 features.
+
+Dataset: 5,960 loan applications with 13 features.
  
-•	Addressed missing values (5,271 missing points) using KNN imputation and categorical grouping (“Others”).
+Addressed missing values (5,271 missing points) using KNN imputation and categorical grouping (“Others”).
  
-•	Checked for zero values and outliers to ensure data quality.
-•	Target variable DEFAULT (binary: 0 = no default, 1 = default) was highly imbalanced (~9% defaults).
- 
-                   
+Checked for zero values and outliers to ensure data quality.
+
+Target variable DEFAULT (binary: 0 = no default, 1 = default) was highly imbalanced (~9% defaults).
+                  
 Handling Imbalanced Data
 o	Applied ROSE (Random OverSampling Examples) to generate a balanced training set.
  

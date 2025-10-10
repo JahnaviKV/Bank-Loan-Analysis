@@ -14,7 +14,8 @@ Objective
 To predict whether a loan applicant will default and identify high-risk borrowers using historical financial and demographic data, enabling the bank to reduce risk and make data-driven lending decisions.
 
 Analytical Approach
-1.	Data Exploration & Preprocessing
+
+Data Exploration & Preprocessing
 •	Dataset: 5,960 loan applications with 13 features.
  
 •	Addressed missing values (5,271 missing points) using KNN imputation and categorical grouping (“Others”).
@@ -23,10 +24,10 @@ Analytical Approach
 •	Target variable DEFAULT (binary: 0 = no default, 1 = default) was highly imbalanced (~9% defaults).
  
                    
-2.	Handling Imbalanced Data
+Handling Imbalanced Data
 o	Applied ROSE (Random OverSampling Examples) to generate a balanced training set.
  
-3.	Model Selection
+Model Selection
 o	Implemented Logistic Regression, Decision Trees (C5.0), and Random Forest.
 o	Evaluated performance using accuracy, sensitivity, specificity, and AUC-ROC.
 

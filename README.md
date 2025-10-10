@@ -57,14 +57,23 @@ Borrowers with longer credit histories (CLAGE) were less likely to default
 Variable Analysis:
 
 Type	Features
+
 Categorical	JOB, REASON
+
 Numeric	LOAN, MORTDUE, VALUE, YOJ, CLAGE, CLNO, DEBTINC
+
 Ordinal	DEROG, DELINQ, NINQ
+
 Model Development & Evaluation
+
 Model	Accuracy	Sensitivity	Specificity	AUC
+
 Logistic Regression	76.01%	76.52%	70.73%	0.79
+
 Random Forest (60/40)	92.17%	95.94%	52.85%	0.82
+
 Decision Tree (C5.0)	88.68%	95.47%	39.47%	0.77
+
 Random Forest (70/30)	91.64%	95.32%	53.26%	0.82
 
 Insights:

@@ -1,4 +1,5 @@
 Executive Summary
+
 This project analyzes a bank loan dataset to predict loan default risk. Using historical loan data, the analysis identifies key predictors of default and develops predictive models to assist the bank in risk-based decision-making.
 Key outcomes:
 •	Random Forest model achieved the highest predictive accuracy (92.17%) and effectively identified high-risk borrowers.
@@ -9,7 +10,7 @@ This analysis demonstrates the ability to frame research questions, apply statis
 1. Objective
 To predict whether a loan applicant will default and identify high-risk borrowers using historical financial and demographic data, enabling the bank to reduce risk and make data-driven lending decisions.
 
-2. Analytical Approach
+3. Analytical Approach
 1.	Data Exploration & Preprocessing
 •	Dataset: 5,960 loan applications with 13 features.
  

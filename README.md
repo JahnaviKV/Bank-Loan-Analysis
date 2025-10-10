@@ -1,6 +1,7 @@
 Bank Loan Default Analysis Report
 
-Jahnavi Kailasa Vani
+- Jahnavi Kailasa Vani
+
 
 Executive Summary
 

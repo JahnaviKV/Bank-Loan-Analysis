@@ -1,119 +1,88 @@
-Bank Loan Default Analysis Report
+## Table of Contents
 
-- Jahnavi Kailasa Vani
+1. [Executive Summary](#executive-summary)
+2. [Objective](#objective)
+3. [Analytical Approach](#analytical-approach)
+   - [Data Exploration & Preprocessing](#data-exploration--preprocessing)
+   - [Handling Imbalanced Data](#handling-imbalanced-data)
+4. [Model Development & Evaluation](#model-development--evaluation)
+5. [Key Insights](#key-insights)
+6. [Recommendations](#recommendations)
+7. [Shiny Dashboard](#shiny-dashboard)
 
+## Executive Summary
 
-Executive Summary
+This project analyzes a bank loan dataset to predict the risk of loan defaults. By identifying high-risk borrowers using predictive models, this analysis aids in making data-driven lending decisions.
 
-This project analyzes a bank loan dataset to predict loan default risk. Using historical loan data, the analysis identifies key predictors of default and develops predictive models to assist the bank in risk-based decision-making.
+### Key Outcomes:
+- **Random Forest Model** achieved the highest accuracy at 92.17%, successfully identifying high-risk borrowers.
+- Key predictors of loan defaults:
+  - **Debt-to-Income Ratio (DEBTINC)**
+  - **Delinquencies (DELINQ)**
+  - **Derogatory Reports (DEROG)**
+  - **Loan Amount (LOAN)**
+- A **Shiny Dashboard** was created to automate high-risk borrower identification.
 
-Key outcomes:
+This report demonstrates the ability to apply statistical methods, predictive modeling, and communicate results to support strategic decision-making.
 
-Random Forest model achieved the highest predictive accuracy (92.17%) and effectively identified high-risk borrowers.
+## Objective
 
-Important predictors: debt-to-income ratio (DEBTINC), delinquencies (DELINQ), derogatory reports (DEROG), and loan amount (LOAN).
+The objective of this analysis is to predict the likelihood of loan defaults and identify high-risk borrowers, enabling the bank to:
+- Reduce risk exposure
+- Make data-driven lending decisions
 
-Created a Shiny dashboard to automate identification of high-risk borrowers using the Random Forest model.
+## Analytical Approach
 
-This analysis demonstrates the ability to frame research questions, apply statistical methods, conduct predictive modeling, and communicate results for strategic decisions.
+### Data Exploration & Preprocessing
 
-Objective
+- **Dataset**: 5,960 loan applications, each with 13 features.
+- **Data Cleaning**:
+  - Addressed missing values using **KNN imputation** and categorical grouping.
+  - Checked for zero values and outliers to ensure data quality.
+  - The target variable (**DEFAULT**) was highly imbalanced (~9% defaults).
 
-To predict whether a loan applicant will default and identify high-risk borrowers using historical financial and demographic data, enabling the bank to reduce risk and make data-driven lending decisions.
+### Handling Imbalanced Data
 
-Analytical Approach
-Data Exploration & Preprocessing
+- Applied **ROSE (Random OverSampling Examples)** to generate a balanced training dataset, improving model accuracy for default prediction.
 
-Dataset: 5,960 loan applications with 13 features
+## Model Development & Evaluation
 
-Addressed missing values (5,271 points) using KNN imputation and categorical grouping (“Others”)
+Various machine learning models were implemented and evaluated for predicting loan defaults:
 
-Checked for zero values and outliers to ensure data quality
+| Model                     | Accuracy | Sensitivity | Specificity | AUC  |
+|---------------------------|----------|-------------|-------------|------|
+| Logistic Regression        | 76.01%   | 76.52%      | 70.73%      | 0.79 |
+| Random Forest (60/40)      | 92.17%   | 95.94%      | 52.85%      | 0.82 |
+| Decision Tree (C5.0)       | 88.68%   | 95.47%      | 39.47%      | 0.77 |
+| Random Forest (70/30)      | 91.64%   | 95.32%      | 53.26%      | 0.82 |
 
-Target variable DEFAULT (binary: 0 = no default, 1 = default) was highly imbalanced (~9% defaults)
+### Insights:
+- **Random Forest** consistently outperformed other models in terms of accuracy and sensitivity.
+- **Logistic Regression** provided a balanced view of sensitivity and specificity.
+- **Decision Tree (C5.0)** was less effective in identifying defaults due to lower specificity.
 
-Handling Imbalanced Data
+## Key Insights
 
-Applied ROSE (Random OverSampling Examples) to generate a balanced training set
+From the exploratory data analysis and model evaluation, the following insights were derived:
 
-Model Selection
+- High-risk borrowers typically have:
+  - High **Debt-to-Income Ratio (DEBTINC)**
+  - More **Delinquencies (DELINQ)**
+  - More **Derogatory Reports (DEROG)**
+  - Larger **Loan Amounts (LOAN)**
+- Borrowers with longer credit histories (**CLAGE**) and fewer inquiries (**NINQ**) are less likely to default.
 
-Implemented Logistic Regression, Decision Trees (C5.0), and Random Forest
+## Recommendations
 
-Evaluated performance using accuracy, sensitivity, specificity, and AUC-ROC
+- **Integrate Random Forest Predictions** into the bank's loan approval workflow.
+- Implement **Risk-Based Pricing**:
+  - Lower interest rates for low-risk borrowers.
+  - Stricter terms for high-risk borrowers.
+- Focus on key predictors like **DEBTINC**, **DELINQ**, **DEROG**, and **LOAN** for early intervention strategies.
+- Offer **financial counseling** or **alternative repayment options** for high-risk borrowers.
+- Ensure **regulatory compliance (ECOA)** by using data-driven lending decisions.
 
-Exploratory Data Analysis (EDA)
+## Shiny Dashboard
 
-Key insights:
-
-Majority of loans were for Debt Consolidation (70%) vs. Home Improvement (30%)
-
-Most borrowers had no derogatory reports (85%) and few delinquencies (72%)
-
-Higher loan amounts, debt-to-income ratios, and derogatory reports correlated with defaults
-
-Borrowers with longer credit histories (CLAGE) were less likely to default
-
-Variable Analysis:
-
-Type	Features
-
-Categorical	JOB, REASON
-
-Numeric	LOAN, MORTDUE, VALUE, YOJ, CLAGE, CLNO, DEBTINC
-
-Ordinal	DEROG, DELINQ, NINQ
-
-Model Development & Evaluation
-
-Model	Accuracy	Sensitivity	Specificity	AUC
-
-Logistic Regression	76.01%	76.52%	70.73%	0.79
-
-Random Forest (60/40)	92.17%	95.94%	52.85%	0.82
-
-Decision Tree (C5.0)	88.68%	95.47%	39.47%	0.77
-
-Random Forest (70/30)	91.64%	95.32%	53.26%	0.82
-
-Insights:
-
-Random Forest consistently outperformed other models in predicting defaults
-
-Logistic Regression offered balanced sensitivity and specificity, useful for overall risk assessment
-
-Decision Tree was less effective in identifying defaulters (low specificity)
-
-Shiny Dashboard:
-
-Developed to predict creditworthiness of loan applicants using the Random Forest model
-
-Enables lenders to instantly get predictions on potential defaults
-
-Key Insights
-
-High-risk borrowers tend to have:
-
-High debt-to-income ratio (DEBTINC)
-
-More delinquencies (DELINQ)
-
-More derogatory reports (DEROG)
-
-Higher loan amounts (LOAN)
-
-Borrowers with longer credit histories and fewer inquiries are lower risk
-
-Handling the imbalanced dataset (using ROSE) was crucial for accurate default identification
-
-Recommendations
-
-Integrate Random Forest predictions into the bank’s loan approval workflow
-
-Implement risk-based pricing: lower rates for low-risk borrowers, stricter terms for high-risk borrowers
-
-Focus on key predictors (DEBTINC, DELINQ, DEROG, LOAN) for early intervention strategies
-
-Provide financial counseling or alternative repayment options to high-risk borrowers
-
-Maintain regulatory compliance (ECOA) through transparent, data-driven lending decisions
+- A **Shiny Dashboard** was developed to automate the prediction of loan default risk using the **Random Forest Model**.
+- The dashboard provides real-time predictions, enabling lenders to instantly assess an applicant’s default risk.

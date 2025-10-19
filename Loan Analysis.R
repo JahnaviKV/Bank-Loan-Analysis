@@ -36,7 +36,6 @@ library(glmnet)
 
 # Data Pre-processing and Exploration
 ## Loading the data
-df <- read.csv("C://Users//jahna//Downloads//Data Analytics//Practicum Analysis//Project - 2//loan.csv")
 loan.df <- df ##representing dataframe into loan.df
 
 ## Inspecting the data
